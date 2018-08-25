@@ -2,7 +2,10 @@
   "name": "battle-github",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://parmeet9891.github.io/battle-github/",
+  "engines" : {
+    "npm" : "4.6.1",
+    "node" : "8.11.3"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "gh-pages": "^1.2.0",
