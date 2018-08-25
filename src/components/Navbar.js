@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import Battle from './Battle.js';
 import Home from './Home.js';
 import Popular from './Popular.js';
