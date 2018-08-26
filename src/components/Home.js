@@ -11,6 +11,11 @@ class Home extends React.Component {
             <Link to='/battle' style = {{fontSize: 30}}>Let the Battle Begin</Link>
           </div>
         </div>
+
+        <div style = {{marginTop: 400}}>
+          <p className = "text-right" style = {{fontSize: 10}}>Developed by parmeet9891</p>
+        </div>
+
       </div>
     )
   }

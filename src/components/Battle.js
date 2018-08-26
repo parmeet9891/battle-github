@@ -2,8 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import Appconfig from './../config.js';
 
-let client_id = '7c5338e3ab97f2ac3f7f';
-let client_secret = '5d3d608fd7d6a356a4901f38aa1eb3cf8eb1438c';
+let client_id = 'YOUR_CLIENT_ID';
+let client_secret = 'YOUR_CLIENT_SECRET_ID';
 
 class Battle extends React.Component {
 
