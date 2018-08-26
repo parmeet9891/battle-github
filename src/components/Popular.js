@@ -1,8 +1,22 @@
 import React from 'react';
 import axios from 'axios';
 import Appconfig from './../config.js';
-import Loading from 'react-loading-bar'
-import 'react-loading-bar/dist/index.css'
+import Loading from 'react-loading-bar';
+import 'react-loading-bar/dist/index.css';
+
+import { css } from 'react-emotion';
+import BounceLoader from 'react-spinners/ClipLoader';
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
+
+// <Loading
+//     show={this.state.show}
+//     color="red"
+//   />
 
 var languages = ['JavaScript', 'Java', 'Ruby', 'CSS', 'Python'];
 class Popular extends React.Component {
@@ -13,6 +27,7 @@ class Popular extends React.Component {
       arr: [false],
       result : [],
       show: false,
+      loading: false,
     }
   }
 
@@ -36,12 +51,12 @@ class Popular extends React.Component {
 
   getSelectLangData = (lang) => {
     let {result} = this.state;
-    this.setState({result: [], show: true});
+    this.setState({result: [], show: true, loading: true});
 
     axios.get(`https://api.github.com/search/repositories?q=stars:%3E1+language:${lang}&sort=stars&order=desc&type=Repositories`)
     .then((res) => {
       console.log(res);
-      this.setState({show: false});
+      this.setState({show: false, loading: false});
       this.filterData(res.data.items);
     })
   }
@@ -58,10 +73,6 @@ class Popular extends React.Component {
     let {arr, result} = this.state;
     return (
       <div className = "container">
-        <Loading
-            show={this.state.show}
-            color="red"
-          />
         <div className = "row">
           <div className = "col-md-12 text-center">
 
@@ -74,6 +85,14 @@ class Popular extends React.Component {
                 })
               }
             </ul>
+
+            <BounceLoader
+            className={override}
+            sizeUnit={"px"}
+            size={40}
+            color={'#123abc'}
+            loading={this.state.loading}
+          />
 
           </div>
         </div>
